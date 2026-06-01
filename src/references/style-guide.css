@@ -403,7 +403,7 @@ nav[aria-label="Table of contents"] {
   border-left: var(--radius-4) solid var(--role-accent);
   border-radius: 0 var(--radius-8) var(--radius-8) 0;
   padding: var(--space-2) var(--space-3);
-  margin: var(--space-3) 0;
+  margin-block: var(--space-3);
 }
 nav[aria-label="Table of contents"] ol { margin: 0; }
 

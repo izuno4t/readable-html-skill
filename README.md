@@ -2,6 +2,18 @@
 
 A skill for coding agents to craft highly readable and minimalistic HTML documents.
 
+## What this skill should achieve
+
+A document produced by this skill is judged by four questions about the
+reader:
+
+1. Can they grasp the gist within five seconds?
+2. Can they jump straight to the section they need?
+3. Can they read it without accessibility friction?
+4. Can they open it anywhere with no external dependencies?
+
+If any answer is "no," the document has not done its job.
+
 ## About the skill
 
 The `readable-html` skill helps a coding agent produce a single-file HTML
@@ -41,6 +53,41 @@ Core principles:
    explicitly asks for the project's existing stylesheet.
 5. **Accessibility cannot be retrofitted.** Semantically correct elements
    from the start do most of the work; bolting on ARIA later does not.
+
+## Why DADS
+
+The skill uses the
+[Digital Agency Design System (DADS)](https://design.digital.go.jp/dads/)
+— Japan's national government design system — as its visual baseline.
+The choice is deliberate:
+
+- **Built for a Japanese-speaking audience.** The skill's primary users
+  work in Japanese (see the Japanese trigger phrases in
+  `src/agents/*/header.md`), and their readers expect documents that
+  read like Japanese-language information services. DADS is built around
+  Japanese typography (Noto Sans JP defaults, CJK spacing) and Japan's
+  accessibility guidance, so outputs land natively in that audience
+  rather than as a foreign-imported aesthetic. Other national systems
+  (GOV.UK Design System, U.S. Web Design System) optimize for Latin-only
+  contexts and would not fit.
+- **Vendor-neutral and brand-free.** DADS exists to deliver public
+  information, not to promote a company. That matches this skill's brief
+  to ship structure and readability without branding.
+- **Accessibility is the design, not an afterthought.** DADS targets
+  WCAG 2.2 AA up front — contrast ratios, minimum target sizes, focus
+  indicators, motion sensitivity. The skill inherits that baseline
+  instead of inventing one.
+- **Authoritative, versioned tokens.** Colors and spacing come from the
+  official `@digital-go-jp/design-tokens` npm package: machine-generated
+  HEX values traceable to a published version, not guessed at by eye.
+- **Tuned for information density.** DADS is built for long-form
+  government documents — exactly the kind of content this skill renders
+  (specs, postmortems, architecture docs).
+
+The non-DADS palettes (`dracula`, `mono`, `high-contrast`) exist as
+optional swaps for dark mode, print, or AAA-leaning needs. They map to
+the same role layer, so the structural rules stay constant regardless of
+which palette is loaded.
 
 ## Repository Layout
 
