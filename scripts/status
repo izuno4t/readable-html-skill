@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+# Show generated outputs and local symlink status.
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
+SKILL_NAME="readable-html"
+
+destination_for() {
+  case "$1" in
+    claude-code)
+      printf '%s/.claude/skills/%s\n' "${HOME}" "${SKILL_NAME}"
+      ;;
+    codex)
+      printf '%s/.codex/skills/%s\n' "${HOME}" "${SKILL_NAME}"
+      ;;
+    *)
+      echo "ERROR: unsupported agent: $1" >&2
+      exit 1
+      ;;
+  esac
+}
+
+for agent in claude-code codex; do
+  output="${ROOT_DIR}/agents/${agent}/${SKILL_NAME}"
+  package="${ROOT_DIR}/dist/${agent}/${SKILL_NAME}.zip"
+  dest="$(destination_for "${agent}")"
+
+  printf '%s\n' "${agent}"
+  if [[ -f "${output}/SKILL.md" && -d "${output}/references" ]]; then
+    printf '  agents: ok (%s)\n' "${output#${ROOT_DIR}/}"
+  else
+    printf '  agents: missing (%s)\n' "${output#${ROOT_DIR}/}"
+  fi
+  if [[ -f "${package}" ]]; then
+    printf '  dist:   ok (%s)\n' "${package#${ROOT_DIR}/}"
+  else
+    printf '  dist:   missing (%s)\n' "${package#${ROOT_DIR}/}"
+  fi
+  if [[ -L "${dest}" ]]; then
+    printf '  link:   %s -> %s\n' "${dest}" "$(readlink "${dest}")"
+  elif [[ -e "${dest}" ]]; then
+    printf '  link:   blocked by non-symlink %s\n' "${dest}"
+  else
+    printf '  link:   missing %s\n' "${dest}"
+  fi
+done

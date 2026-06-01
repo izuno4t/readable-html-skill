@@ -1,0 +1,49 @@
+/* palette-dads-orange.css — DADS v2.14.0 / key color = Orange */
+
+:root {
+  --palette-key-50:   #ffeee2;
+  --palette-key-100:  #ffdfca;
+  --palette-key-200:  #ffc199;
+  --palette-key-300:  #ffa66d;
+  --palette-key-400:  #ff8d44;
+  --palette-key-500:  #ff7628;
+  --palette-key-600:  #fb5b01;
+  --palette-key-700:  #e25100;
+  --palette-key-800:  #c74700;
+  --palette-key-900:  #ac3e00;
+  --palette-key-1000: #8b3200;
+  --palette-key-1100: #6d2700;
+  --palette-key-1200: #541e00;
+
+  --palette-bg:           #ffffff;
+  --palette-bg-subtle:    #f2f2f2;
+  --palette-border:       #999999;
+  --palette-border-subtle:#cccccc;
+  --palette-text-strong:  #1a1a1a;
+  --palette-text:         #333333;
+  --palette-text-muted:   #767676;
+
+  --palette-success-bg:   #e6f5ec;
+  --palette-success-fg:   #197a4b;
+  --palette-success-deep: #0c472a;
+  --palette-error-bg:     #fdeeee;
+  --palette-error-fg:     #ec0000;
+  --palette-error-deep:   #a90000;
+  --palette-warning-bg:   #fff0b3;
+  --palette-warning-fg:   #927200;
+  --palette-warning-deep: #806300;
+  --palette-info-bg:      #e8f1fe;
+  --palette-info-fg:      #0017c1;
+
+  /* With an Orange key, keep the link the conventional blue */
+  --palette-link:         #00118f;
+  --palette-link-visited: #8b008b;
+  /* Active in orange would clash, so differentiate with red */
+  --palette-link-active:  #a90000;  /* red-1000 */
+
+  --palette-focus-outline:#000000;
+  --palette-focus-accent: #ffd43d;
+
+  --palette-mark-bg:      #ffe380;
+  --palette-mark-fg:      #1a1a1a;
+}

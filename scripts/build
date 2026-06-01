@@ -1,0 +1,78 @@
+#!/usr/bin/env bash
+# Build agent-specific readable-html skill directories under agents/.
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
+SKILL_NAME="readable-html"
+
+usage() {
+  cat >&2 <<'USAGE'
+Usage: scripts/build [agent|all]
+
+Examples:
+  scripts/build
+  scripts/build codex
+USAGE
+}
+
+build_agent() {
+  local agent="$1"
+  local header="${ROOT_DIR}/src/agents/${agent}/header.md"
+  local body="${ROOT_DIR}/src/skill.md"
+  local target="${ROOT_DIR}/agents/${agent}/${SKILL_NAME}"
+  local tmp="${target}.tmp"
+
+  if [[ ! -f "${header}" ]]; then
+    echo "ERROR: missing header: ${header#${ROOT_DIR}/}" >&2
+    exit 1
+  fi
+  if [[ ! -f "${body}" ]]; then
+    echo "ERROR: missing body: ${body#${ROOT_DIR}/}" >&2
+    exit 1
+  fi
+
+  rm -rf "${tmp}"
+  mkdir -p "${tmp}"
+
+  {
+    sed -n '1,$p' "${header}"
+    printf '\n\n'
+    sed -n '1,$p' "${body}"
+  } > "${tmp}/SKILL.md"
+
+  cp "${ROOT_DIR}/src/readable-html.yaml.example" "${tmp}/readable-html.yaml.example"
+  cp -R "${ROOT_DIR}/src/references" "${tmp}/references"
+
+  rm -rf "${target}"
+  mkdir -p "$(dirname "${target}")"
+  mv "${tmp}" "${target}"
+  echo "Built ${target#${ROOT_DIR}/}"
+}
+
+agent_arg="${1:-all}"
+
+case "${agent_arg}" in
+  -h|--help)
+    usage
+    exit 0
+    ;;
+esac
+
+agents=()
+if [[ "${agent_arg}" == "all" ]]; then
+  while IFS= read -r dir; do
+    agents+=("$(basename "${dir}")")
+  done < <(find "${ROOT_DIR}/src/agents" -mindepth 1 -maxdepth 1 -type d | sort)
+else
+  agents=("${agent_arg}")
+fi
+
+if [[ ${#agents[@]} -eq 0 ]]; then
+  echo "ERROR: no agents found under src/agents" >&2
+  exit 1
+fi
+
+for agent in "${agents[@]}"; do
+  build_agent "${agent}"
+done

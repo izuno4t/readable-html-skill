@@ -1,0 +1,92 @@
+/* ============================================================================
+ * roles.css — Layer 2: role mapping
+ * ----------------------------------------------------------------------------
+ * The Palette → Role mapping layer, inspired by the Dracula Theme
+ * "Specification" (https://draculatheme.com/spec).
+ *
+ * This file defines only "which palette token is used for which purpose."
+ * It holds no raw HEX values — it references the `--palette-*` variables
+ * from palette-*.css only.
+ *
+ * style-guide.css references only the `--role-*` variables from this file,
+ * and must not reference `--palette-*` directly (the three-layer separation
+ * principle).
+ *
+ * When changing the color scheme:
+ *   - Swap palette-*.css for a different file to recolor everything.
+ *   - To change role mapping (e.g., make headings muted), edit only this
+ *     file.
+ * ============================================================================ */
+
+:root {
+  /* --- Text ---------------------------------------------------------- */
+  --role-text-heading:    var(--palette-text-strong);   /* strongest heading */
+  --role-text-body:       var(--palette-text);          /* body */
+  --role-text-muted:      var(--palette-text-muted);    /* captions, asides */
+  --role-text-on-key:     var(--palette-bg);            /* text on key-color background */
+
+  /* --- Background ---------------------------------------------------- */
+  --role-bg-page:         var(--palette-bg);            /* whole page */
+  --role-bg-subtle:       var(--palette-bg-subtle);     /* code background, quote, callout, etc. */
+  --role-bg-elevated:     var(--palette-bg);            /* card background (with elevation) */
+
+  /* --- Border -------------------------------------------------------- */
+  --role-border:          var(--palette-border);        /* normal border (table cells etc.) */
+  --role-border-subtle:   var(--palette-border-subtle); /* decorative border */
+  --role-border-strong:   var(--palette-key-900);       /* emphasized border (active details etc.) */
+
+  /* --- Accent / decoration ------------------------------------------- */
+  --role-accent:          var(--palette-key-900);       /* heading chip, TOC left bar */
+  --role-accent-subtle:   var(--palette-key-50);        /* TOC pale background */
+  --role-accent-mid:      var(--palette-key-500);       /* pre left border, blockquote, etc. */
+
+  /* --- Links --------------------------------------------------------- */
+  --role-link:            var(--palette-link);
+  --role-link-hover:      var(--palette-key-900);       /* hover goes to key color */
+  --role-link-visited:    var(--palette-link-visited);
+  --role-link-active:     var(--palette-link-active);
+
+  /* --- Focus --------------------------------------------------------- */
+  --role-focus-outline:   var(--palette-focus-outline);
+  --role-focus-accent:    var(--palette-focus-accent);
+
+  /* --- Semantic (notification banner, status, etc.) ------------------ */
+  --role-success:         var(--palette-success-fg);    /* success accent */
+  --role-success-bg:      var(--palette-success-bg);
+  --role-success-deep:    var(--palette-success-deep);
+  --role-error:           var(--palette-error-fg);
+  --role-error-bg:        var(--palette-error-bg);
+  --role-error-deep:      var(--palette-error-deep);
+  --role-warning:         var(--palette-warning-fg);
+  --role-warning-bg:      var(--palette-warning-bg);
+  --role-warning-deep:    var(--palette-warning-deep);
+  --role-info:            var(--palette-info-fg);
+  --role-info-bg:         var(--palette-info-bg);
+
+  /* --- Code ---------------------------------------------------------- */
+  --role-code-bg:         var(--palette-bg-subtle);
+  --role-code-border:     var(--palette-border-subtle);
+  --role-code-accent:     var(--palette-key-500);       /* pre left border */
+
+  /* --- Diff display -------------------------------------------------- */
+  --role-diff-add-bg:     var(--palette-success-bg);
+  --role-diff-add-fg:     var(--palette-success-deep);
+  --role-diff-del-bg:     var(--palette-error-bg);
+  --role-diff-del-fg:     var(--palette-error-deep);
+
+  /* --- Highlight ----------------------------------------------------- */
+  --role-mark-bg:         var(--palette-mark-bg);
+  --role-mark-fg:         var(--palette-mark-fg);
+
+  /* --- Tables -------------------------------------------------------- */
+  --role-table-header-bg: var(--palette-key-50);
+  --role-table-header-fg: var(--palette-key-1000);
+  --role-table-row-zebra: var(--palette-bg-subtle);
+
+  /* --- Callouts (color per kind) ------------------------------------- */
+  --role-callout-info:    var(--palette-key-900);
+  --role-callout-success: var(--palette-success-fg);
+  --role-callout-warning: var(--palette-warning-fg);
+  --role-callout-error:   var(--palette-error-fg);
+  --role-callout-question:var(--palette-link-visited);  /* Q chip uses visited-link color */
+}

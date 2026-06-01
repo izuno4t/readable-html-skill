@@ -1,0 +1,62 @@
+/* ============================================================================
+ * palette-high-contrast.css
+ * ----------------------------------------------------------------------------
+ * High-contrast variant. For visual accessibility, long-form reading, or
+ * pushing beyond DADS's WCAG 2.2 AA toward AAA (text 7:1, non-text 4.5:1).
+ *
+ * Heavy use of pure black and white with fewer intermediate grays. Links
+ * keep the blue/magenta convention but use higher-purity shades for
+ * stronger distinguishability.
+ * ============================================================================ */
+
+:root {
+  /* --- Key color: scale pushed toward black --- */
+  --palette-key-50:   #f2f2f2;
+  --palette-key-100:  #e6e6e6;
+  --palette-key-200:  #cccccc;
+  --palette-key-300:  #999999;
+  --palette-key-400:  #666666;
+  --palette-key-500:  #4d4d4d;
+  --palette-key-600:  #333333;
+  --palette-key-700:  #1a1a1a;
+  --palette-key-800:  #000000;
+  --palette-key-900:  #000000;
+  --palette-key-1000: #000000;
+  --palette-key-1100: #000000;
+  --palette-key-1200: #000000;
+
+  /* --- Neutral --- */
+  --palette-bg:           #ffffff;
+  --palette-bg-subtle:    #f2f2f2;
+  --palette-border:       #000000;     /* 21:1 vs. white, clears AAA easily */
+  --palette-border-subtle:#666666;     /* 5.74:1 */
+  --palette-text-strong:  #000000;
+  --palette-text:         #000000;
+  --palette-text-muted:   #333333;     /* 12.63:1 vs. white */
+
+  /* --- Semantic (higher purity for maximum contrast) --- */
+  --palette-success-bg:   #e6f5ec;
+  --palette-success-fg:   #0c472a;    /* 11.4:1 vs. success-bg, AAA */
+  --palette-success-deep: #032213;
+  --palette-error-bg:     #fdeeee;
+  --palette-error-fg:     #850000;    /* 9.5:1 vs. error-bg, AAA */
+  --palette-error-deep:   #620000;
+  --palette-warning-bg:   #fff0b3;
+  --palette-warning-fg:   #604b00;    /* 7.2:1 vs. warning-bg, AAA */
+  --palette-warning-deep: #2c2200;
+  --palette-info-bg:      #d9e6ff;
+  --palette-info-fg:      #000060;    /* 16:1 vs. info-bg, AAA */
+
+  /* --- Link (higher purity for stronger distinguishability) --- */
+  --palette-link:         #0017c1;    /* DADS blue-900, 12.96:1 vs. white */
+  --palette-link-visited: #500050;    /* DADS magenta-1100, 12.4:1 */
+  --palette-link-active:  #850000;    /* DADS red-1100 */
+
+  /* --- Focus (extra-prominent) --- */
+  --palette-focus-outline:#000000;
+  --palette-focus-accent: #ffc700;    /* pure yellow */
+
+  /* --- Highlight --- */
+  --palette-mark-bg:      #ffc700;
+  --palette-mark-fg:      #000000;
+}

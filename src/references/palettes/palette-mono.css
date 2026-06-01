@@ -1,0 +1,63 @@
+/* ============================================================================
+ * palette-mono.css
+ * ----------------------------------------------------------------------------
+ * Monochrome palette. For print-friendly output, serious documents, or any
+ * setting where decoration should be minimized. Colors are grayscale plus
+ * functional accents (link / state).
+ *
+ * The grayscale values come from DADS v2.14.0 Solid Gray.
+ * Link blue and visited magenta retain DADS Primitive Blue/Magenta to
+ * respect color-vision accessibility and convention.
+ * ============================================================================ */
+
+:root {
+  /* --- Key color = Solid Gray scale --- */
+  --palette-key-50:   #f2f2f2;
+  --palette-key-100:  #e6e6e6;
+  --palette-key-200:  #cccccc;
+  --palette-key-300:  #b3b3b3;
+  --palette-key-400:  #999999;
+  --palette-key-500:  #7f7f7f;
+  --palette-key-600:  #666666;
+  --palette-key-700:  #4d4d4d;
+  --palette-key-800:  #333333;
+  --palette-key-900:  #1a1a1a;
+  --palette-key-1000: #000000;
+  --palette-key-1100: #000000;
+  --palette-key-1200: #000000;
+
+  /* --- Neutral --- */
+  --palette-bg:           #ffffff;
+  --palette-bg-subtle:    #f2f2f2;
+  --palette-border:       #999999;
+  --palette-border-subtle:#cccccc;
+  --palette-text-strong:  #000000;
+  --palette-text:         #1a1a1a;
+  --palette-text-muted:   #4d4d4d;
+
+  /* --- Semantic (largely grayscale; warnings may use a faint hue) --- */
+  --palette-success-bg:   #e6e6e6;
+  --palette-success-fg:   #1a1a1a;
+  --palette-success-deep: #000000;
+  --palette-error-bg:     #e6e6e6;
+  --palette-error-fg:     #1a1a1a;
+  --palette-error-deep:   #000000;
+  --palette-warning-bg:   #e6e6e6;
+  --palette-warning-fg:   #1a1a1a;
+  --palette-warning-deep: #000000;
+  --palette-info-bg:      #e6e6e6;
+  --palette-info-fg:      #1a1a1a;
+
+  /* --- Link colors keep the conventional blue/magenta --- */
+  --palette-link:         #00118f;  /* DADS blue-1000 */
+  --palette-link-visited: #8b008b;  /* DADS magenta-900 */
+  --palette-link-active:  #000000;
+
+  /* --- Focus --- */
+  --palette-focus-outline:#000000;
+  --palette-focus-accent: #ffd43d;
+
+  /* --- Highlight --- */
+  --palette-mark-bg:      #ffe380;
+  --palette-mark-fg:      #1a1a1a;
+}

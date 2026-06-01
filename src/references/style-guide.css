@@ -1,0 +1,624 @@
+/* ============================================================================
+ * style-guide.css — Layer 3: styling applied to HTML elements
+ * ----------------------------------------------------------------------------
+ * Element styling layer. Colors reference `--role-*` only; `--palette-*`
+ * is never referenced directly (the three-layer separation principle).
+ *
+ * Structure, typography, spacing, and layout follow DADS v2.14.0 and the
+ * official HTML sample components
+ * (digital-go-jp/design-system-example-components-html).
+ *
+ * Usage: inline into a single <style>, in this order:
+ *   1. contents of references/palettes/palette-<choice>.css (exactly one)
+ *   2. contents of references/roles.css
+ *   3. contents of this file (style-guide.css)
+ *
+ * Normative summary (DADS / WCAG 2.2 AA):
+ *   - Body text size: 16 CSS px minimum (var(--font-size-16))
+ *   - Text contrast:        4.5:1 (AA), 7:1 (AAA)
+ *   - Non-text contrast:    3:1 (AA),   4.5:1 (AAA)
+ *   - Target size for interactive controls: 24 x 24 CSS px (inline links
+ *     are exempt; only .skip-link enforces this here — verify per element
+ *     when adding icon buttons, status chips, etc.)
+ *   - Focus indicator: outline (4 px) + box-shadow accent (see
+ *     :focus-visible)
+ *   - Motion: respects prefers-reduced-motion
+ * ============================================================================ */
+
+
+/* ============================================================================
+ * Typography, spacing, and layout tokens (DADS-aligned)
+ * ----------------------------------------------------------------------------
+ * Unlike colors, these tokens are static — they do not change when a palette
+ * is swapped. They live in Layer 3 alongside the applied styling
+ * (Layer 2 has a different responsibility).
+ * ============================================================================ */
+
+:root {
+  /* Font (DADS) */
+  --font-family-sans: "Noto Sans JP", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-family-mono: "Noto Sans Mono", monospace;
+
+  /* Font sizes (DADS Standard scale) */
+  --font-size-14: calc(14 / 16 * 1rem);
+  --font-size-16: 1rem;
+  --font-size-17: calc(17 / 16 * 1rem);
+  --font-size-18: calc(18 / 16 * 1rem);
+  --font-size-20: calc(20 / 16 * 1rem);
+  --font-size-24: calc(24 / 16 * 1rem);
+  --font-size-28: calc(28 / 16 * 1rem);
+  --font-size-32: calc(32 / 16 * 1rem);
+
+  /* Line height (DADS) */
+  --line-height-120: 1.2;
+  --line-height-140: 1.4;
+  --line-height-150: 1.5;
+  --line-height-160: 1.6;
+  --line-height-170: 1.7;
+
+  /* Letter spacing (DADS) */
+  --letter-spacing-1: 0.01em;
+  --letter-spacing-2: 0.02em;
+
+  /* Spacing (DADS 8 px base) */
+  --space-1: calc(8 / 16 * 1rem);
+  --space-2: calc(16 / 16 * 1rem);
+  --space-3: calc(24 / 16 * 1rem);
+  --space-5: calc(40 / 16 * 1rem);
+  --space-8: calc(64 / 16 * 1rem);
+
+  /* Layout */
+  --max-width-prose: 48rem;
+  --max-width-wide:  64rem;
+
+  /* Corner shapes (DADS Corner Shapes) */
+  --radius-4:  calc(4 / 16 * 1rem);
+  --radius-8:  calc(8 / 16 * 1rem);
+  --radius-12: calc(12 / 16 * 1rem);
+
+  /* Elevation (DADS) */
+  --elevation-1: 0 2px 8px 1px rgba(0,0,0,0.1), 0 1px 5px 0 rgba(0,0,0,0.3);
+}
+
+
+/* ============================================================================
+ * Reset & base
+ * ============================================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scrollbar-gutter: stable;
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--space-2);
+  font-family: var(--font-family-sans);
+}
+
+body {
+  margin: 0;
+  padding: var(--space-3) var(--space-2);
+  font-size: var(--font-size-16);
+  line-height: var(--line-height-170);
+  letter-spacing: var(--letter-spacing-2);
+  color: var(--role-text-body);
+  background: var(--role-bg-page);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body > header,
+body > nav,
+body > main,
+body > footer {
+  max-width: var(--max-width-prose);
+  margin-inline: auto;
+}
+
+
+/* ============================================================================
+ * Headings (DADS Heading component)
+ * ============================================================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--role-text-heading);
+  font-family: var(--font-family-sans);
+  font-weight: 700;
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-3);
+}
+
+h1 {
+  font-size: var(--font-size-32);
+  line-height: var(--line-height-150);
+  letter-spacing: var(--letter-spacing-1);
+  margin-top: 0;
+  padding-bottom: var(--space-2);
+  border-bottom: var(--radius-4) solid var(--role-accent);
+}
+
+h2 {
+  position: relative;
+  font-size: var(--font-size-24);
+  line-height: var(--line-height-150);
+  letter-spacing: var(--letter-spacing-2);
+  padding-left: calc(1em / 3 + 0.5em);
+  margin-top: var(--space-8);
+}
+h2::before {
+  position: absolute;
+  top: 0.2em;
+  bottom: 0.1em;
+  left: 0;
+  width: calc(1em / 3);
+  background-color: var(--role-accent);
+  content: "";
+}
+@supports (top: 1lh) {
+  h2::before {
+    top: calc(0.5lh - 0.45em);
+    bottom: calc(0.5lh - 0.55em);
+  }
+}
+@media (forced-colors: active) {
+  h2::before { background-color: CanvasText; }
+}
+
+h3 {
+  font-size: var(--font-size-20);
+  line-height: var(--line-height-150);
+  letter-spacing: var(--letter-spacing-2);
+  margin-top: var(--space-5);
+}
+
+h4 {
+  font-size: var(--font-size-18);
+  line-height: var(--line-height-160);
+  letter-spacing: var(--letter-spacing-2);
+  margin-top: var(--space-3);
+}
+
+h5, h6 {
+  font-size: var(--font-size-17);
+  line-height: var(--line-height-170);
+  color: var(--role-text-muted);
+}
+
+.lede {
+  font-size: var(--font-size-18);
+  line-height: var(--line-height-160);
+  color: var(--role-text-muted);
+  margin-bottom: var(--space-3);
+}
+
+
+/* ============================================================================
+ * Paragraphs, lists, definition lists
+ * ============================================================================ */
+
+p, ul, ol, dl, blockquote, pre, table, figure {
+  margin: var(--space-2) 0;
+}
+
+ul, ol { padding-left: 1.5em; }
+li { margin: var(--space-1) 0; }
+li > ul, li > ol { margin: var(--space-1) 0; }
+
+dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: var(--space-1) var(--space-2);
+}
+dt { font-weight: 700; color: var(--role-text-heading); }
+dd { margin: 0; }
+
+
+/* ============================================================================
+ * Links (DADS official implementation)
+ * ============================================================================ */
+
+:where(a):any-link {
+  color: var(--role-link);
+  text-decoration: underline;
+  text-decoration-thickness: calc(1 / 16 * 1rem);
+  text-underline-offset: calc(3 / 16 * 1rem);
+}
+
+:where(a):visited {
+  color: var(--role-link-visited);
+}
+
+@media (hover: hover) {
+  :where(a):hover {
+    color: var(--role-link-hover);
+    text-decoration-thickness: calc(3 / 16 * 1rem);
+  }
+}
+
+:where(a):active {
+  color: var(--role-link-active);
+  text-decoration-thickness: calc(1 / 16 * 1rem);
+}
+
+
+/* ============================================================================
+ * Focus (DADS official: layered)
+ * ============================================================================ */
+
+:focus-visible {
+  outline: calc(4 / 16 * 1rem) solid var(--role-focus-outline);
+  outline-offset: calc(2 / 16 * 1rem);
+  border-radius: var(--radius-4);
+  box-shadow: 0 0 0 calc(2 / 16 * 1rem) var(--role-focus-accent);
+}
+
+
+/* ============================================================================
+ * Emphasis
+ * ============================================================================ */
+
+strong { font-weight: 700; }
+em { font-style: italic; }
+mark {
+  background: var(--role-mark-bg);
+  color: var(--role-mark-fg);
+  padding: 0 0.2em;
+  border-radius: var(--radius-4);
+}
+
+
+/* ============================================================================
+ * Code (DADS Mono style)
+ * ============================================================================ */
+
+code, kbd, samp {
+  font-family: var(--font-family-mono);
+  font-size: 0.9em;
+  background: var(--role-code-bg);
+  padding: 0.15em 0.3em;
+  border-radius: var(--radius-4);
+}
+
+pre {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-14);
+  line-height: var(--line-height-150);
+  background: var(--role-code-bg);
+  border: 1px solid var(--role-code-border);
+  border-left: var(--radius-4) solid var(--role-code-accent);
+  border-radius: var(--radius-8);
+  padding: var(--space-2);
+  overflow-x: auto;
+}
+pre code {
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+}
+
+.diff-add {
+  background: var(--role-diff-add-bg);
+  color: var(--role-diff-add-fg);
+  display: block;
+  padding: 0 0.5em;
+}
+.diff-del {
+  background: var(--role-diff-del-bg);
+  color: var(--role-diff-del-fg);
+  display: block;
+  padding: 0 0.5em;
+}
+
+
+/* ============================================================================
+ * Tables
+ * ============================================================================ */
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: var(--font-size-16);
+}
+caption {
+  caption-side: top;
+  text-align: left;
+  font-weight: 700;
+  margin-bottom: var(--space-1);
+  color: var(--role-text-muted);
+}
+th, td {
+  text-align: left;
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--role-border);
+  vertical-align: top;
+}
+th {
+  background: var(--role-table-header-bg);
+  color: var(--role-table-header-fg);
+  font-weight: 700;
+}
+tbody tr:nth-child(even) td {
+  background: var(--role-table-row-zebra);
+}
+
+
+/* ============================================================================
+ * Quotations
+ * ============================================================================ */
+
+blockquote {
+  border-left: var(--radius-4) solid var(--role-accent-mid);
+  padding: var(--space-1) var(--space-3);
+  color: var(--role-text-muted);
+  background: var(--role-bg-subtle);
+  border-radius: 0 var(--radius-8) var(--radius-8) 0;
+}
+blockquote > :first-child { margin-top: 0; }
+blockquote > :last-child { margin-bottom: 0; }
+
+
+/* ============================================================================
+ * Figures
+ * ============================================================================ */
+
+figure { margin: var(--space-3) 0; }
+figcaption {
+  font-size: var(--font-size-14);
+  color: var(--role-text-muted);
+  margin-top: var(--space-1);
+  text-align: center;
+}
+img, svg { max-width: 100%; height: auto; }
+
+
+/* ============================================================================
+ * Collapsible
+ * ============================================================================ */
+
+details {
+  border: 1px solid var(--role-border-subtle);
+  border-radius: var(--radius-8);
+  padding: var(--space-1) var(--space-2);
+  margin: var(--space-2) 0;
+  background: var(--role-bg-elevated);
+}
+details[open] {
+  padding-bottom: var(--space-2);
+  border-color: var(--role-border-strong);
+}
+summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--role-text-heading);
+  padding: var(--space-1) 0;
+  list-style-position: outside;
+}
+
+
+/* ============================================================================
+ * Navigation / Table of contents
+ * ============================================================================ */
+
+nav[aria-label="Table of contents"] {
+  background: var(--role-accent-subtle);
+  border-left: var(--radius-4) solid var(--role-accent);
+  border-radius: 0 var(--radius-8) var(--radius-8) 0;
+  padding: var(--space-2) var(--space-3);
+  margin: var(--space-3) 0;
+}
+nav[aria-label="Table of contents"] ol { margin: 0; }
+
+
+/* ============================================================================
+ * Skip link (A11y)
+ * ============================================================================ */
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background: var(--role-accent);
+  color: var(--role-text-on-key);
+  padding: var(--space-1) var(--space-2);
+  z-index: 100;
+  text-decoration: none;
+  min-width: calc(24 / 16 * 1rem);
+  min-height: calc(24 / 16 * 1rem);
+}
+.skip-link:focus { top: 0; }
+
+
+/* ============================================================================
+ * Callout (DADS Notification Banner color-chip style)
+ * ============================================================================ */
+
+aside[data-callout],
+.callout {
+  --_cb: var(--role-callout-info);
+  position: relative;
+  border: 1px solid var(--_cb);
+  background: var(--role-bg-elevated);
+  padding: var(--space-2) var(--space-3) var(--space-2) var(--space-5);
+  margin: var(--space-2) 0;
+  border-radius: var(--radius-8);
+  box-shadow: inset calc(8 / 16 * 1rem) 0 0 0 var(--_cb);
+  color: var(--role-text-body);
+}
+aside[data-callout] > :first-child,
+.callout > :first-child { margin-top: 0; }
+aside[data-callout] > :last-child,
+.callout > :last-child { margin-bottom: 0; }
+
+aside[data-callout="info"],    .callout[data-callout="info"]    { --_cb: var(--role-callout-info); }
+aside[data-callout="success"], .callout[data-callout="success"] { --_cb: var(--role-callout-success); }
+aside[data-callout="warning"], .callout[data-callout="warning"] { --_cb: var(--role-callout-warning); }
+aside[data-callout="error"],   .callout[data-callout="error"]   { --_cb: var(--role-callout-error); }
+aside[data-callout="question"],.callout[data-callout="question"]{ --_cb: var(--role-callout-question); }
+
+.callout-title {
+  display: block;
+  font-weight: 700;
+  font-size: var(--font-size-17);
+  color: var(--_cb);
+  margin-bottom: var(--space-1);
+}
+
+
+/* ============================================================================
+ * Q&A definition list (Gotchas, etc.)
+ * ============================================================================ */
+
+dl.qa { display: block; }
+dl.qa > dt {
+  position: relative;
+  padding-left: var(--space-3);
+  margin-top: var(--space-3);
+  font-size: var(--font-size-17);
+  color: var(--role-text-heading);
+}
+dl.qa > dt::before {
+  content: "Q";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--space-3);
+  height: var(--space-3);
+  background: var(--role-accent);
+  color: var(--role-text-on-key);
+  font-weight: 700;
+  text-align: center;
+  line-height: var(--space-3);
+  border-radius: var(--radius-4);
+  font-size: var(--font-size-14);
+}
+dl.qa > dd {
+  padding-left: var(--space-2);
+  margin-top: var(--space-1);
+  margin-bottom: var(--space-2);
+  margin-left: calc(var(--space-3) / 2);
+  border-left: 1px solid var(--role-border-subtle);
+}
+
+
+/* ============================================================================
+ * Layout utilities
+ * ============================================================================ */
+
+.side-by-side {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: var(--space-2);
+  margin: var(--space-2) 0;
+}
+.side-by-side > * {
+  margin: 0;
+  padding: var(--space-2);
+  background: var(--role-bg-subtle);
+  border: 1px solid var(--role-border-subtle);
+  border-radius: var(--radius-8);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: var(--space-2);
+  margin: var(--space-2) 0;
+}
+.card-grid > article {
+  margin: 0;
+  padding: var(--space-3);
+  background: var(--role-bg-elevated);
+  border: 1px solid var(--role-border-subtle);
+  border-radius: var(--radius-12);
+  box-shadow: var(--elevation-1);
+}
+.tradeoff {
+  font-size: var(--font-size-14);
+  color: var(--role-text-muted);
+  font-style: italic;
+}
+
+ol.timeline {
+  list-style: none;
+  padding-left: 0;
+  border-left: calc(2 / 16 * 1rem) solid var(--role-border);
+  margin-left: var(--space-1);
+}
+ol.timeline > li {
+  position: relative;
+  padding-left: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+ol.timeline > li::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--space-1) - 5px);
+  top: 0.6em;
+  width: 10px; height: 10px;
+  background: var(--role-accent);
+  border-radius: 50%;
+}
+ol.timeline time {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-14);
+  font-weight: 700;
+  color: var(--role-text-muted);
+  margin-right: var(--space-1);
+}
+
+.status {
+  display: inline-block;
+  padding: calc(2 / 16 * 1rem) calc(8 / 16 * 1rem);
+  border-radius: var(--radius-4);
+  font-size: var(--font-size-14);
+  font-weight: 700;
+  line-height: 1.4;
+}
+.status-ok   { background: var(--role-success-bg); color: var(--role-success-deep); }
+.status-warn { background: var(--role-warning-bg); color: var(--role-warning-deep); }
+.status-bad  { background: var(--role-error-bg);   color: var(--role-error-deep); }
+
+
+/* ============================================================================
+ * Motion sensitivity (WCAG 2.3.3)
+ * ============================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* ============================================================================
+ * Print
+ * ============================================================================ */
+
+@media print {
+  body {
+    color: #000;
+    background: #fff;
+    max-width: none;
+    padding: 0;
+  }
+  a { color: #000; }
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+  }
+  details {
+    border: none;
+    background: transparent;
+    padding: 0;
+  }
+  details[open] summary { font-weight: 700; }
+  details:not([open])::after {
+    content: "[collapsed]";
+    color: var(--role-text-muted);
+  }
+  nav[aria-label="Table of contents"] { page-break-after: always; }
+  h1, h2, h3 { page-break-after: avoid; }
+  pre, table, figure { page-break-inside: avoid; }
+}

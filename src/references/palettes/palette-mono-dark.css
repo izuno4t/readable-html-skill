@@ -1,0 +1,47 @@
+/* palette-mono-dark.css — Mono, dark-mode variant */
+
+:root {
+  --palette-key-50:   #1a1a1a;
+  --palette-key-100:  #333333;
+  --palette-key-200:  #4d4d4d;
+  --palette-key-300:  #666666;
+  --palette-key-400:  #7f7f7f;
+  --palette-key-500:  #999999;
+  --palette-key-600:  #b3b3b3;
+  --palette-key-700:  #cccccc;
+  --palette-key-800:  #e6e6e6;
+  --palette-key-900:  #f2f2f2;
+  --palette-key-1000: #ffffff;
+  --palette-key-1100: #ffffff;
+  --palette-key-1200: #ffffff;
+
+  --palette-bg:           #1a1a1a;
+  --palette-bg-subtle:    #333333;
+  --palette-border:       #999999;
+  --palette-border-subtle:#4d4d4d;
+  --palette-text-strong:  #ffffff;
+  --palette-text:         #e6e6e6;
+  --palette-text-muted:   #b3b3b3;
+
+  --palette-success-bg:   #333333;
+  --palette-success-fg:   #e6e6e6;
+  --palette-success-deep: #ffffff;
+  --palette-error-bg:     #333333;
+  --palette-error-fg:     #e6e6e6;
+  --palette-error-deep:   #ffffff;
+  --palette-warning-bg:   #333333;
+  --palette-warning-fg:   #e6e6e6;
+  --palette-warning-deep: #ffffff;
+  --palette-info-bg:      #333333;
+  --palette-info-fg:      #e6e6e6;
+
+  --palette-link:         #9db7f9;
+  --palette-link-visited: #ff8eff;
+  --palette-link-active:  #ffffff;
+
+  --palette-focus-outline:#ffffff;
+  --palette-focus-accent: #ffd43d;
+
+  --palette-mark-bg:      #604b00;
+  --palette-mark-fg:      #fff0b3;
+}

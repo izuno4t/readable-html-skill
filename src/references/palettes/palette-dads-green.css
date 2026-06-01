@@ -1,0 +1,48 @@
+/* palette-dads-green.css — DADS v2.14.0 / key color = Green (from official design-tokens v1.1.9) */
+
+:root {
+  --palette-key-50:   #e6f5ec;
+  --palette-key-100:  #c2e5d1;
+  --palette-key-200:  #9bd4b5;
+  --palette-key-300:  #71c598;
+  --palette-key-400:  #51b883;
+  --palette-key-500:  #2cac6e;
+  --palette-key-600:  #259d63;
+  --palette-key-700:  #1d8b56;
+  --palette-key-800:  #197a4b;
+  --palette-key-900:  #115a36;
+  --palette-key-1000: #0c472a;
+  --palette-key-1100: #08351f;
+  --palette-key-1200: #032213;
+
+  --palette-bg:           #ffffff;
+  --palette-bg-subtle:    #f2f2f2;
+  --palette-border:       #999999;
+  --palette-border-subtle:#cccccc;
+  --palette-text-strong:  #1a1a1a;
+  --palette-text:         #333333;
+  --palette-text-muted:   #767676;
+
+  --palette-success-bg:   #e6f5ec;
+  --palette-success-fg:   #197a4b;
+  --palette-success-deep: #0c472a;
+  --palette-error-bg:     #fdeeee;
+  --palette-error-fg:     #ec0000;
+  --palette-error-deep:   #a90000;
+  --palette-warning-bg:   #fff0b3;
+  --palette-warning-fg:   #927200;
+  --palette-warning-deep: #806300;
+  --palette-info-bg:      #e8f1fe;
+  --palette-info-fg:      #0017c1;
+
+  /* With a Green key, keep the link blue for color-vision accessibility */
+  --palette-link:         #00118f;  /* blue-1000 */
+  --palette-link-visited: #8b008b;  /* magenta-900 */
+  --palette-link-active:  #c74700;
+
+  --palette-focus-outline:#000000;
+  --palette-focus-accent: #ffd43d;
+
+  --palette-mark-bg:      #ffe380;
+  --palette-mark-fg:      #1a1a1a;
+}

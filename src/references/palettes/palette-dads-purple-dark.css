@@ -1,0 +1,47 @@
+/* palette-dads-purple-dark.css — DADS Purple, dark-mode variant */
+
+:root {
+  --palette-key-50:   #21004b;
+  --palette-key-100:  #30016c;
+  --palette-key-200:  #41048e;
+  --palette-key-300:  #5109ad;
+  --palette-key-400:  #5c10be;
+  --palette-key-500:  #6f23d0;
+  --palette-key-600:  #8843e1;
+  --palette-key-700:  #a565f8;
+  --palette-key-800:  #bb87ff;
+  --palette-key-900:  #cda6ff;
+  --palette-key-1000: #ddc2ff;
+  --palette-key-1100: #ecddff;
+  --palette-key-1200: #f1eafa;
+
+  --palette-bg:           #1a1a1a;
+  --palette-bg-subtle:    #333333;
+  --palette-border:       #7f7f7f;
+  --palette-border-subtle:#4d4d4d;
+  --palette-text-strong:  #ffffff;
+  --palette-text:         #e6e6e6;
+  --palette-text-muted:   #b3b3b3;
+
+  --palette-success-bg:   #08351f;
+  --palette-success-fg:   #9bd4b5;
+  --palette-success-deep: #c2e5d1;
+  --palette-error-bg:     #620000;
+  --palette-error-fg:     #ffbbbb;
+  --palette-error-deep:   #ffdada;
+  --palette-warning-bg:   #604b00;
+  --palette-warning-fg:   #ffe380;
+  --palette-warning-deep: #fff0b3;
+  --palette-info-bg:      #30016c;
+  --palette-info-fg:      #ddc2ff;
+
+  --palette-link:         #cda6ff;
+  --palette-link-visited: #ff8eff;
+  --palette-link-active:  #ff8d44;
+
+  --palette-focus-outline:#ffffff;
+  --palette-focus-accent: #ffd43d;
+
+  --palette-mark-bg:      #604b00;
+  --palette-mark-fg:      #fff0b3;
+}

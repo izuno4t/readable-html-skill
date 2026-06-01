@@ -1,0 +1,82 @@
+/* ============================================================================
+ * palette-dracula.css
+ * ----------------------------------------------------------------------------
+ * Dracula Theme official palette (https://draculatheme.com/contribute).
+ * Original by the Dracula Team (Zeno Rocha, Luxonauta).
+ * Dracula is dark by design. For a light variant, evaluate Alucard
+ * separately.
+ *
+ * The twelve named tokens (Background / Current Line / Selection /
+ * Foreground / Comment / Red / Orange / Yellow / Green / Cyan / Purple /
+ * Pink) are mapped to this skill's palette structure (`--palette-key-*`
+ * etc.).
+ *
+ * Purple is adopted as the key color (Dracula's signature).
+ * ============================================================================ */
+
+:root {
+  /* --- Dracula official twelve colors (for reference) ---
+   * Background:   #282A36
+   * Current Line: #44475A
+   * Selection:    #44475A
+   * Foreground:   #F8F8F2
+   * Comment:      #6272A4
+   * Red:          #FF5555
+   * Orange:       #FFB86C
+   * Yellow:       #F1FA8C
+   * Green:        #50FA7B
+   * Cyan:         #8BE9FD
+   * Purple:       #BD93F9
+   * Pink:         #FF79C6
+   */
+
+  /* --- Key color (Purple base, twelve steps derived from Dracula) --- */
+  --palette-key-50:   #f5edff;
+  --palette-key-100:  #e8d4ff;
+  --palette-key-200:  #d8b4ff;
+  --palette-key-300:  #cba0ff;
+  --palette-key-400:  #c89bfa;
+  --palette-key-500:  #bd93f9;  /* Dracula Purple (anchor) */
+  --palette-key-600:  #a679f5;
+  --palette-key-700:  #8f5fed;
+  --palette-key-800:  #7745e3;
+  --palette-key-900:  #5f2bd6;
+  --palette-key-1000: #4818c2;
+  --palette-key-1100: #3a0e9e;
+  --palette-key-1200: #2c0480;
+
+  /* --- Neutral (Dracula official base) --- */
+  --palette-bg:           #282a36;  /* Background */
+  --palette-bg-subtle:    #44475a;  /* Current Line / Selection */
+  --palette-border:       #6272a4;  /* Comment */
+  --palette-border-subtle:#3a3d4a;
+  --palette-text-strong:  #ffffff;
+  --palette-text:         #f8f8f2;  /* Foreground */
+  --palette-text-muted:   #c8c8c0;  /* slightly muted Foreground, brighter than Comment */
+
+  /* --- Semantic (Dracula conventions) --- */
+  --palette-success-bg:   #1f3d2a;
+  --palette-success-fg:   #50fa7b;  /* Green */
+  --palette-success-deep: #a3ffb8;
+  --palette-error-bg:     #3d1f1f;
+  --palette-error-fg:     #ff5555;  /* Red */
+  --palette-error-deep:   #ff8b8b;
+  --palette-warning-bg:   #3d3520;
+  --palette-warning-fg:   #f1fa8c;  /* Yellow */
+  --palette-warning-deep: #ffffa3;
+  --palette-info-bg:      #1f3a4d;
+  --palette-info-fg:      #8be9fd;  /* Cyan */
+
+  /* --- Links (Cyan + Pink for distinguishability) --- */
+  --palette-link:         #8be9fd;  /* Cyan */
+  --palette-link-visited: #ff79c6;  /* Pink */
+  --palette-link-active:  #ffb86c;  /* Orange */
+
+  /* --- Focus --- */
+  --palette-focus-outline:#f8f8f2;  /* Foreground */
+  --palette-focus-accent: #f1fa8c;  /* Yellow */
+
+  /* --- Highlight --- */
+  --palette-mark-bg:      #f1fa8c;  /* Yellow */
+  --palette-mark-fg:      #282a36;
+}

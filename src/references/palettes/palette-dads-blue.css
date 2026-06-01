@@ -1,0 +1,65 @@
+/* ============================================================================
+ * palette-dads-blue.css
+ * ----------------------------------------------------------------------------
+ * DADS (Digital Agency Design System) v2.14.0, key color = Blue.
+ * Transcribed from official design-tokens v1.1.9
+ * (https://github.com/digital-go-jp/design-tokens).
+ *
+ * This file holds raw HEX values only (Layer 1 / Palette).
+ * roles.css references these values; style-guide.css references only roles.
+ * To change the color scheme, swap this file for a different palette-*.css.
+ *
+ * Light mode. Use palette-dads-blue-dark.css when a dark mode is required.
+ * ============================================================================ */
+
+:root {
+  /* --- Primitive: Blue (key color base) --- */
+  --palette-key-50:   #e8f1fe;
+  --palette-key-100:  #d9e6ff;
+  --palette-key-200:  #c5d7fb;
+  --palette-key-300:  #9db7f9;
+  --palette-key-400:  #7096f8;
+  --palette-key-500:  #4979f5;
+  --palette-key-600:  #3460fb;
+  --palette-key-700:  #264af4;
+  --palette-key-800:  #0031d8;
+  --palette-key-900:  #0017c1;
+  --palette-key-1000: #00118f;
+  --palette-key-1100: #000071;
+  --palette-key-1200: #000060;
+
+  /* --- Neutral --- */
+  --palette-bg:           #ffffff;  /* primary background */
+  --palette-bg-subtle:    #f2f2f2;  /* gray-50 */
+  --palette-border:       #999999;  /* gray-400, non-text 3:1 vs. white */
+  --palette-border-subtle:#cccccc;  /* gray-200 */
+  --palette-text-strong:  #1a1a1a;  /* gray-900 */
+  --palette-text:         #333333;  /* gray-800 */
+  --palette-text-muted:   #767676;  /* gray-536, text 4.5:1 vs. white */
+
+  /* --- Semantic (DADS Semantic Colors) --- */
+  --palette-success-bg:   #e6f5ec;  /* green-50 */
+  --palette-success-fg:   #197a4b;  /* green-800 */
+  --palette-success-deep: #0c472a;  /* green-1000 */
+  --palette-error-bg:     #fdeeee;  /* red-50 */
+  --palette-error-fg:     #ec0000;  /* red-800 */
+  --palette-error-deep:   #a90000;  /* red-1000 */
+  --palette-warning-bg:   #fff0b3;  /* yellow-100 */
+  --palette-warning-fg:   #927200;  /* yellow-900 */
+  --palette-warning-deep: #806300;  /* yellow-1000 */
+  --palette-info-bg:      #e8f1fe;  /* blue-50 */
+  --palette-info-fg:      #0017c1;  /* blue-900 */
+
+  /* --- Link, visited, active --- */
+  --palette-link:         #00118f;  /* blue-1000 */
+  --palette-link-visited: #8b008b;  /* magenta-900 */
+  --palette-link-active:  #c74700;  /* orange-800 */
+
+  /* --- Focus --- */
+  --palette-focus-outline:#000000;
+  --palette-focus-accent: #ffd43d;  /* yellow-300 */
+
+  /* --- Highlight --- */
+  --palette-mark-bg:      #ffe380;  /* yellow-200 */
+  --palette-mark-fg:      #1a1a1a;
+}

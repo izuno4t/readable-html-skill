@@ -1,0 +1,47 @@
+/* palette-dads-purple.css — DADS v2.14.0 / key color = Purple */
+
+:root {
+  --palette-key-50:   #f1eafa;
+  --palette-key-100:  #ecddff;
+  --palette-key-200:  #ddc2ff;
+  --palette-key-300:  #cda6ff;
+  --palette-key-400:  #bb87ff;
+  --palette-key-500:  #a565f8;
+  --palette-key-600:  #8843e1;
+  --palette-key-700:  #6f23d0;
+  --palette-key-800:  #5c10be;
+  --palette-key-900:  #5109ad;
+  --palette-key-1000: #41048e;
+  --palette-key-1100: #30016c;
+  --palette-key-1200: #21004b;
+
+  --palette-bg:           #ffffff;
+  --palette-bg-subtle:    #f2f2f2;
+  --palette-border:       #999999;
+  --palette-border-subtle:#cccccc;
+  --palette-text-strong:  #1a1a1a;
+  --palette-text:         #333333;
+  --palette-text-muted:   #767676;
+
+  --palette-success-bg:   #e6f5ec;
+  --palette-success-fg:   #197a4b;
+  --palette-success-deep: #0c472a;
+  --palette-error-bg:     #fdeeee;
+  --palette-error-fg:     #ec0000;
+  --palette-error-deep:   #a90000;
+  --palette-warning-bg:   #fff0b3;
+  --palette-warning-fg:   #927200;
+  --palette-warning-deep: #806300;
+  --palette-info-bg:      #f1eafa;
+  --palette-info-fg:      #41048e;
+
+  --palette-link:         #41048e;  /* purple-1000 */
+  --palette-link-visited: #c000c0;  /* magenta-700 */
+  --palette-link-active:  #c74700;
+
+  --palette-focus-outline:#000000;
+  --palette-focus-accent: #ffd43d;
+
+  --palette-mark-bg:      #ffe380;
+  --palette-mark-fg:      #1a1a1a;
+}

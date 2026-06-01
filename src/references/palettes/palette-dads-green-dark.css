@@ -1,0 +1,47 @@
+/* palette-dads-green-dark.css — DADS Green, dark-mode variant */
+
+:root {
+  --palette-key-50:   #032213;
+  --palette-key-100:  #08351f;
+  --palette-key-200:  #0c472a;
+  --palette-key-300:  #115a36;
+  --palette-key-400:  #197a4b;
+  --palette-key-500:  #1d8b56;
+  --palette-key-600:  #259d63;
+  --palette-key-700:  #2cac6e;
+  --palette-key-800:  #51b883;
+  --palette-key-900:  #71c598;
+  --palette-key-1000: #9bd4b5;
+  --palette-key-1100: #c2e5d1;
+  --palette-key-1200: #e6f5ec;
+
+  --palette-bg:           #1a1a1a;
+  --palette-bg-subtle:    #333333;
+  --palette-border:       #7f7f7f;
+  --palette-border-subtle:#4d4d4d;
+  --palette-text-strong:  #ffffff;
+  --palette-text:         #e6e6e6;
+  --palette-text-muted:   #b3b3b3;
+
+  --palette-success-bg:   #08351f;
+  --palette-success-fg:   #9bd4b5;
+  --palette-success-deep: #c2e5d1;
+  --palette-error-bg:     #620000;
+  --palette-error-fg:     #ffbbbb;
+  --palette-error-deep:   #ffdada;
+  --palette-warning-bg:   #604b00;
+  --palette-warning-fg:   #ffe380;
+  --palette-warning-deep: #fff0b3;
+  --palette-info-bg:      #00234b;
+  --palette-info-fg:      #c0e4ff;
+
+  --palette-link:         #9db7f9;
+  --palette-link-visited: #ff8eff;
+  --palette-link-active:  #ff8d44;
+
+  --palette-focus-outline:#ffffff;
+  --palette-focus-accent: #ffd43d;
+
+  --palette-mark-bg:      #604b00;
+  --palette-mark-fg:      #fff0b3;
+}

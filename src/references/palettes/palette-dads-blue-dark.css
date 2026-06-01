@@ -1,0 +1,61 @@
+/* ============================================================================
+ * palette-dads-blue-dark.css
+ * ----------------------------------------------------------------------------
+ * DADS Blue, dark-mode variant. DADS itself does not publish a dark-mode
+ * specification, so this mapping is built independently to satisfy the
+ * contrast requirements (WCAG 2.2 AA, text 4.5:1).
+ *
+ * Primitive tokens are taken from DADS v2.14.0 unchanged.
+ * ============================================================================ */
+
+:root {
+  /* --- Primitive: Blue (selected for dark-background visibility) --- */
+  --palette-key-50:   #00234b;   /* inverted: high luminance <-> low */
+  --palette-key-100:  #00316a;
+  --palette-key-200:  #00428c;
+  --palette-key-300:  #0066be;
+  --palette-key-400:  #0877d7;
+  --palette-key-500:  #57b8ff;
+  --palette-key-600:  #97d3ff;
+  --palette-key-700:  #c0e4ff;
+  --palette-key-800:  #c5d7fb;
+  --palette-key-900:  #9db7f9;
+  --palette-key-1000: #c5d7fb;
+  --palette-key-1100: #d9e6ff;
+  --palette-key-1200: #e8f1fe;
+
+  /* --- Neutral (dark) --- */
+  --palette-bg:           #1a1a1a;  /* gray-900 */
+  --palette-bg-subtle:    #333333;  /* gray-800 */
+  --palette-border:       #7f7f7f;  /* gray-500, 3.5:1 vs. bg */
+  --palette-border-subtle:#4d4d4d;  /* gray-700 */
+  --palette-text-strong:  #ffffff;
+  --palette-text:         #e6e6e6;  /* gray-100 */
+  --palette-text-muted:   #b3b3b3;  /* gray-300, 7.2:1 vs. bg */
+
+  /* --- Semantic (for dark background) --- */
+  --palette-success-bg:   #08351f;  /* green-1100 */
+  --palette-success-fg:   #9bd4b5;  /* green-200 */
+  --palette-success-deep: #c2e5d1;  /* green-100 */
+  --palette-error-bg:     #620000;  /* red-1200 */
+  --palette-error-fg:     #ffbbbb;  /* red-200 */
+  --palette-error-deep:   #ffdada;  /* red-100 */
+  --palette-warning-bg:   #604b00;  /* yellow-1200 */
+  --palette-warning-fg:   #ffe380;  /* yellow-200 */
+  --palette-warning-deep: #fff0b3;  /* yellow-100 */
+  --palette-info-bg:      #00234b;  /* light-blue-1200 */
+  --palette-info-fg:      #c0e4ff;  /* light-blue-200 */
+
+  /* --- Link, visited, active (for dark background) --- */
+  --palette-link:         #9db7f9;  /* blue-300 */
+  --palette-link-visited: #ff8eff;  /* magenta-300 */
+  --palette-link-active:  #ff8d44;  /* orange-400 */
+
+  /* --- Focus (inverted to keep visibility in dark) --- */
+  --palette-focus-outline:#ffffff;
+  --palette-focus-accent: #ffd43d;  /* yellow-300 works in dark too */
+
+  /* --- Highlight --- */
+  --palette-mark-bg:      #604b00;  /* yellow-1200 */
+  --palette-mark-fg:      #fff0b3;  /* yellow-100 */
+}

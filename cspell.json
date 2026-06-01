@@ -1,0 +1,39 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "files": [
+    "**/*.md"
+  ],
+  "ignorePaths": [
+    "agents/",
+    "dist/",
+    "node_modules/",
+    ".git/"
+  ],
+  "words": [
+    "Alucard",
+    "Anthropic",
+    "autoplay",
+    "Codex",
+    "Collapsibles",
+    "cspell",
+    "DADS",
+    "defaultdict",
+    "Dracula",
+    "Figma",
+    "Flexbox",
+    "frontmatter",
+    "kebab",
+    "lede",
+    "markdownlint",
+    "overdesign",
+    "pipefail",
+    "Postmortem",
+    "Scannability",
+    "Shihipar",
+    "Stylable",
+    "Thariq",
+    "WAIC",
+    "WCAG"
+  ]
+}
